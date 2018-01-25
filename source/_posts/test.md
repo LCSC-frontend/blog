@@ -5,4 +5,4 @@ it is a test
 
 <!-- more -->
 
-test it.
+test it.push it.
