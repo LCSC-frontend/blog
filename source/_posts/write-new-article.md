@@ -1,5 +1,6 @@
 ---
 title: '怎么在这里写文章'
+tags: [hexo, new article]
 author: tuffy
 ---
 在我们博客写一篇新文章
@@ -53,3 +54,5 @@ xxxxx  // 在“---”和“<!-- more -->”之间的是文章的摘要，首页
 <!-- more -->  // 以下是正文
 ...
 ```
+如果要在文章中放图片的话，在 themes/next/source/upload 中新建你文章的文件夹（一般取跟文章同名）在里面放这篇文章用到的图片，而文章中则以路径 “/upload/article-name/img-name.PNG” 去引用。
+
