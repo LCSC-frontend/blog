@@ -1,5 +1,6 @@
 ---
 title: 'gitPage + hexo 搭建博客'
+tags: [git pages, blog, hexo, git comment]
 author: tuffy
 ---
 
@@ -12,7 +13,7 @@ author: tuffy
 ### Github Pages
 Github Pages 是一个可用于托管静态页面的平台，站点免费托管在 github 上，使用 gitPage 来放我们的页面时，首先要在 github 建立相应的仓库，并且仓库名命名方式为： username.github.io
 
-![仓库取名](upload/build-blog/name-gitpage.png)
+![仓库取名](/upload/build-blog/name-gitpage.PNG)
 
 这个时候我们放在该仓库中的静态页面可以通过 https：//username.github.io 去打开，比如这里是： https://lcsc-frontend.github.io/
 
@@ -68,14 +69,14 @@ hexo d // 这个时候访问 https://username.github.io/ 可以看到你的博�
 ## 将 blog 相关 hexo 代码放在 github 上
 在 github 上新建一个仓库，我本来以为 push 上去就 okay 了，结果似乎没有那么顺利。发现新的主题 next 没有被 push 上去，ε=(´ο｀*)))唉。怎么处理这个问题？使用 git subtree。将 themes/next 这个主题作为子项目合并到项目中，变成其的一个子目录。
 
-（1） 先 fork 你想要的主题到你的 github 账号下，比如我还是 fork next。
-（2） 当然，还是要先将 blog 项目 push 到 github 上去
-（3） 如果你之前就把 next 放在 blog 里了，就先 remove，并把删除记录提交上去：
+先 fork 你想要的主题到你的 github 账号下，比如我还是 fork next。
+当然，还是要先将 blog 项目 push 到 github 上去
+如果你之前就把 next 放在 blog 里了，就先 remove，并把删除记录提交上去：
 ```
 git commit -m "delete next"
 git push
 ```
-（4） 在主项目 blog 中，将子项目 next 添加到远程库
+在主项目 blog 中，将子项目 next 添加到远程库
 ```
 git remote add -f next https://github.com/username/hexo-theme-next.git
 git subtree add --prefix=themes/next next master --squash
@@ -98,4 +99,34 @@ git push
 
 ## 为博客添加文章评论功能
 
-写累了，我要歇一歇
+此博客文章评论功能是使用 gitment 来实现的。gitment 是一款基于 github issues 的评论系统，以 github 账号登录，评论内容会显示在所有者相应repo 的 issues 中。
+
+整个过程是这样的：
+
+博客所有者的 github 账号中注册 OAuth Application。
+
+![新建 OAuth Apps](/upload/build-blog/new-oauth-app.PNG)
+
+![注册 OAuth Apps](/upload/build-blog/register-app.PNG)
+
+写上应用的名称，重点是“Authorization callback URL”要写对，写网站（你的博客）的域名。注册成功后，可以看到 Client ID 和 Client Secret
+
+![注册 OAuth Apps](/upload/build-blog/register-success.PNG)
+
+然后使用 npm 安装 gitment 插件
+```
+npm install gitment --save
+```
+
+在 github 中创建一个仓库，这个仓库之后的 issues 放着博客文章的评论。这里我给仓库取名 git-comments
+
+在 blog/themes/next/_config.yml 中填写相应的配置：
+```
+gitment:
+  github_user: xxx # MUST HAVE, Your Github ID
+  github_repo: git-comments # MUST HAVE, The repo you use to store Gitment comments
+  client_id: xxxxxx # MUST HAVE, Github client id for the Gitment
+  client_secret: xxxxxx # EITHER this or proxy_gateway, Github access secret token for the Gitment
+```
+
+这个时候可以看到文章后面已经有了评论的相关功能，但是还处于未初始化状态，需要登录账号去进行初始化，但登录账号会直接进入 xxx.github.io，所以要进行初始化操作，首先将最新的部署到 git 上面，执行 hexo g 和 hexo d。登录成功后点击“初始化”按钮，功成身退。

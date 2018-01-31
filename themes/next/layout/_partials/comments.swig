@@ -92,6 +92,7 @@
         id: window.location.pathname,
         theme: myTheme,
         owner: '{{ theme.gitment.owner }}',
+        admin: {{ theme.gitment.admin }},
         repo: '{{ theme.gitment.repo }}',
         oauth: {
           client_id: '{{ theme.gitment.client_id }}',
