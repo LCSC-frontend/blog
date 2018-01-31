@@ -25,6 +25,7 @@
         var gitment = new {{CommentsClass}}({
             id: window.location.pathname, 
             owner: '{{ theme.gitment.github_user }}',
+            admin: {{ theme.gitment.github_admin }},
             repo: '{{ theme.gitment.github_repo }}',
             {% if theme.gitment.mint %}
             lang: "{{ theme.gitment.language }}" || navigator.language || navigator.systemLanguage || navigator.userLanguage,

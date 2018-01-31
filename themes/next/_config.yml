@@ -406,9 +406,10 @@ gitment:
   count: true # Show comments count in post meta area
   lazy: false # Comments lazy loading with a button
   cleanly: true # Hide 'Powered by ...' on footer, and more
-  language: en # Force language, or auto switch by theme
+  language: zh-cn # Force language, or auto switch by theme
   github_user: LCSC-frontend # MUST HAVE, Your Github ID
-  github_repo: gitment-comments # MUST HAVE, The repo you use to store Gitment comments
+  github_admin: ['Tuffy1']
+  github_repo: blog-comments # MUST HAVE, The repo you use to store Gitment comments
   client_id: 78e08fa667bafe8447b3 # MUST HAVE, Github client id for the Gitment
   client_secret: 89e2ea317e0879203bd311342f6f121d8c63063d # EITHER this or proxy_gateway, Github access secret token for the Gitment
   proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
