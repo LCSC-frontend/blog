@@ -18,7 +18,7 @@ cd blog
 npm install
 ```
 
-# 写文章
+# 编辑和上传
 
 3. 在 blog/source/_posts/ 中新建 md 文件，于此处编写文章
 4. 执行下面命令，可在本地进行更改，并在 localhost：4000 预览你修改的效果
@@ -33,4 +33,23 @@ hexo g
 ```
 hexo d
 ```
-7. 打开相应地址 [我们的博客](https://lcsc-frontend.github.io/) 即可看到最新的修改。（如果没有，刷新一下试试）
+7. 将修改 push 到 github 上：
+```
+git add .
+git commit -m "xxx"
+git push
+```
+8. 打开相应地址 [我们的博客](https://lcsc-frontend.github.io/) 即可看到最新的修改。（如果没有，刷新一下试试）
+
+# 文章基本格式
+```
+---  // 文章的开头都有这个部分，用来写文章title，文章的标签，文章作者。用“---”隔起来
+title: xxx
+tags: [tag1, tag2, tag3]  // 为文章打上标签，之后可以在“标签选项中看到”
+author: tuffy
+---
+xxxxx  // 在“---”和“<!-- more -->”之间的是文章的摘要，首页部分显示的是这里的内容，如果不写<!-- more -->会整篇文章都显示在首页
+
+<!-- more -->  // 以下是正文
+...
+```

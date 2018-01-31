@@ -1,7 +1,6 @@
 ---
 title: 理解 npm5 中的 package-lock.json 文件
 tags: [npm, package-lock, js]
-images:
 author: tuffy
 ---
 npm是一个用于管理package之间依赖关系的管理器，它允许开发者在package.json中标出自己项目对各库包的依赖。在npm5开始，当使用npm时会自动生成一个package-lock.json文件，它是做什么用的呢？
