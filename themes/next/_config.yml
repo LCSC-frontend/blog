@@ -408,7 +408,7 @@ gitment:
   cleanly: true # Hide 'Powered by ...' on footer, and more
   language: zh-cn # Force language, or auto switch by theme
   github_user: LCSC-frontend # MUST HAVE, Your Github ID
-  github_admin: ['Tuffy1']
+  github_admin: tuffy1','qidaneix','Roachard','chengmanxiang','zhengrenkunniubi','renshengruxi666','huangliyuanli
   github_repo: blog-comments # MUST HAVE, The repo you use to store Gitment comments
   client_id: 78e08fa667bafe8447b3 # MUST HAVE, Github client id for the Gitment
   client_secret: 89e2ea317e0879203bd311342f6f121d8c63063d # EITHER this or proxy_gateway, Github access secret token for the Gitment
