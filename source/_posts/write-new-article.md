@@ -21,7 +21,7 @@ npm install
 
 # 编辑和上传
 
-3. 在 blog/source/_posts/ 中新建 md 文件，于此处编写文章
+3. 在 blog/source/_posts/ 中新建 md 文件，于此处编写文章(注意：新建的 md 文件名中不带中文)
 4. 执行下面命令，可在本地进行更改，并在 localhost：4000 预览你修改的效果
 ```
 hexo s

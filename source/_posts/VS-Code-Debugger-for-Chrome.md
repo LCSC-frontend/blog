@@ -1,5 +1,5 @@
 ---
-title: VS Code - Debugger for Chrome（文档中文翻译）
+title: VS Code - Debugger for Chrome(文档中文翻译)
 tags: [visual studio code, chrome, debugger plugin]
 date: 2018-01-31 21:48:47
 author: 肖大宝
